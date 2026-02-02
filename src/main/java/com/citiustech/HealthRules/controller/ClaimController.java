@@ -1,5 +1,6 @@
 package com.citiustech.HealthRules.controller;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.validation.annotation.Validated;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.citiustech.HealthRules.dto.ClaimRequestDTO;
 import com.citiustech.HealthRules.dto.ClaimResponseDTO;
@@ -41,5 +43,10 @@ public class ClaimController {
                 saved.getApprovedAmount(),
                 saved.getDenialReason()
         );
+    }
+
+    @GetMapping
+    public List<Claim> getALlClaim(){
+        return claimService.getClaims();
     }
 }

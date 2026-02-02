@@ -1,6 +1,7 @@
 package com.citiustech.HealthRules.service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -26,5 +27,9 @@ public class ClaimService {
 
         Claim adjudicated = adjudicationService.adjudicate(claim);
         return claimRepository.save(adjudicated);
+    }
+
+    public List<Claim> getClaims(){
+        return claimRepository.findAll();
     }
 }
